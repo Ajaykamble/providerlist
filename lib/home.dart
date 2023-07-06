@@ -27,7 +27,12 @@ class _HomePageState extends State<HomePage> {
           itemCount: value.length,
           itemBuilder: (context, index) => Selector<UserProvider, bool>(
             selector: (p0, p1) => p1.second[index].status,
-            builder: (context, value, child) => Text("$value"),
+            builder: (context, value, child) => ListTile(
+              onTap: () {
+                provider.toggle(index);
+              },
+              title: Text("$value"),
+            ),
           ),
         ),
       ),
